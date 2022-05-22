@@ -85,9 +85,24 @@ namespace Nevoweb.DNN.NBrightBuy.Components
             // do nothing assume, resetdata will be used later in calling code.
         }
 
+        /// <summary>
+        /// Populate the ProductData with NBrightInfo data 
+        /// passed in the constructor
+        /// </summary>
+        /// <param name="info"></param>
+        public ProductData(NBrightInfo info)
+        {
+            Info = info;
+            DataRecord = info;
+            Models = GetEntityList("models");
+            Imgs = GetEntityList("imgs");
+            IsOnSale = CheckIsOnSale();
+            DealerIsOnSale = DealerCheckIsOnSale();
+            IsInStock = CheckIsInStock();
+        }
 
         /// <summary>
-        /// Populate the ProductData in this class
+        /// Populate the ProductData in this class from the db
         /// </summary>
         /// <param name="productId">productid</param>
         /// <param name="lang">langauge to populate</param>

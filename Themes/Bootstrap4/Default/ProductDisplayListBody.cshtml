@@ -25,7 +25,7 @@
     <div class="row">
         @foreach (NBrightInfo info in Model.List)
         {
-            var product = new ProductData(info.ItemID, info.Lang);
+            var product = new ProductData(info);
             var itemId = info.ItemID;
             var entryUrl = EntryUrl(navigationdata, info, Model);
             lang = info.Lang;
